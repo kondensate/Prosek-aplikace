@@ -1,0 +1,35 @@
+name: Update matches
+on:
+  schedule: [{ cron: '0 */6 * * *' }]
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency: update-matches
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci || npm install
+      - name: Import matches
+        env:
+          DATA_SOURCE_URL: ${{ vars.DATA_SOURCE_URL }}
+          DATA_SOURCE_TYPE: ${{ vars.DATA_SOURCE_TYPE }}
+        run: node scripts/update-matches.mjs
+      - name: Commit and deploy if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$(git status --porcelain public/data)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/data
+            git commit -m "chore(data): update matches"
+            git push
+            gh workflow run deploy.yml
+          else
+            echo "No changes."
+          fi
