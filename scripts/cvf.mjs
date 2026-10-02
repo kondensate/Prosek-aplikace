@@ -76,11 +76,13 @@ function relatedUrls(html, compId) {
   return { urls: [...urls].slice(0, 20), groupId, teamId };
 }
 
-function parseDetail(html, home, away) {
+function parseDetail(html, home, away, teamFilter = 'prosek') {
   const $ = load(html);
   const text = clean($('body').text());
   const out = {};
   const teams = [...new Set($('h1 a[href*="teamId="], h2 a[href*="teamId="], h3 a[href*="teamId="]').map((_, x) => clean($(x).text())).get().filter(Boolean))];
+  const mineA = $('a[href*="teamId="]').filter((_, x) => new RegExp(teamFilter, 'i').test(clean($(x).text()))).first();
+  if (mineA.length) out.teamId = param(mineA.attr('href'), 'teamId');
   if (teams.length >= 2) { home = teams[0]; away = teams[1]; out.homeTeam = home; out.awayTeam = away; }
   const dt = text.match(/Datum a čas:\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4}),?\s*(\d{1,2}):(\d{2})/);
   if (dt) { out.date = `${dt[3]}-${pad(dt[2])}-${pad(dt[1])}`; out.time = `${pad(dt[4])}:${dt[5]}`; }
@@ -131,20 +133,44 @@ export async function fetchCvf(cfg) {
     console.log(`${comp.category} (${comp.id}): zápasů na stránkách ${blocks.size}, Prosek ${mine.length}`);
     if (!blocks.size) console.warn('  VAROVÁNÍ: nenalezen žádný zápas – struktura stránky se asi změnila. Začátek stránky:\n', clean(load(first)('body').text()).slice(0, 800));
 
-    for (const b of mine) {
+    const done = new Set();
+    let proTeamId = teamId;
+    const handle = async (b) => {
+      if (done.has(b.gameId)) return;
+      done.add(b.gameId);
       let d = {};
-      try { d = parseDetail(await get(`${BASE}?mode=program&competitionId=${comp.id}&gameId=${b.gameId}`), b.home, b.away); }
-      catch (e) { console.warn(`  detail ${b.gameId} nedostupný:`, e.message); }
-      const home = /prosek/i.test(d.homeTeam || b.home);
+      try {
+        const html = await get(`${BASE}?mode=program&competitionId=${comp.id}&gameId=${b.gameId}`);
+        d = parseDetail(html, b.home, b.away, cfg.teamFilter);
+      } catch (e) { console.warn(`  detail ${b.gameId} nedostupný:`, e.message); }
+      proTeamId ??= d.teamId;
+      const homeName = d.homeTeam || b.home; const awayName = d.awayTeam || b.away;
+      const date = d.date || b.date; const time = d.time || b.time;
+      if (!date || !homeName || homeName === '?' ) { console.warn(`  zápas ${b.gameId} přeskočen (chybí údaje)`); return; }
+      const home = new RegExp(cfg.teamFilter, 'i').test(homeName);
       const finished = d.homeScore !== undefined;
       rows.push({
-        id: `cvf-${b.gameId}`, date: d.date || b.date, time: d.time || b.time, category: comp.category,
-        competition: d.competition || comp.name, round: '', homeTeam: d.homeTeam || b.home, awayTeam: d.awayTeam || b.away,
-        venue: d.venue || (home ? '' : 'Hala neuvedena'), address: home ? '' : `domácí tým: ${d.homeTeam || b.home}`,
+        id: `cvf-${b.gameId}`, date, time: time || '00:00', category: comp.category,
+        competition: d.competition || comp.name, round: '', homeTeam: homeName, awayTeam: awayName,
+        venue: d.venue || (home ? '' : 'Hala neuvedena'), address: home ? '' : `domácí tým: ${homeName}`,
         status: d.status || (finished ? 'finished' : 'upcoming'),
         homeScore: d.homeScore ?? null, awayScore: d.awayScore ?? null, sets: d.sets || [],
       });
-    }
+    };
+    for (const b of mine) await handle(b);
+
+    // Stránka týmu: výpis jeho zápasů napříč dny (sobota + neděle, další kola)
+    if (proTeamId) {
+      for (const mode of ['clubs']) {
+        try {
+          const html = await get(`${BASE}?mode=${mode}&competitionId=${comp.id}&teamId=${proTeamId}`);
+          const $t = load(html); const ids = new Set();
+          $t('a[href*="gameId="]').each((_, x) => { const g = param($t(x).attr('href'), 'gameId'); if (g) ids.add(g); });
+          console.log(`  stránka týmu ${proTeamId}: odkazů na zápasy ${ids.size}`);
+          for (const g of ids) await handle({ gameId: g, home: '?', away: '?', text: '', date: '', time: '' });
+        } catch (e) { console.warn('  stránka týmu nedostupná:', e.message); }
+      }
+    } else console.warn('  ID týmu Prosek se nepodařilo zjistit');
   }
   return rows;
 }
