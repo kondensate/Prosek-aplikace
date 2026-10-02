@@ -1,16 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Category, Match, Settings } from './types';
 import { CATEGORIES, CATEGORY_LABEL, CLUB_WEB, DEFAULT_SETTINGS, WEB_LINKS } from './config';
-import { useMatches } from './data';
+import { useMatches, useStandings } from './data';
 import { dateLong, monthLabel, sortMatches, stamp, ymd } from './format';
-import { Calendar, CategoryFilter, Detail, Empty, MatchCard, Results } from './components';
+import { Calendar, CategoryFilter, Detail, Empty, MatchCard, Results, Standings } from './components';
 
-type Tab = 'calendar' | 'results' | 'web' | 'settings';
-const TABS: [Tab, string, string][] = [['calendar', 'Kalendář', '🗓'], ['results', 'Výsledky', '🏆'], ['web', 'Web', '🌐'], ['settings', 'Nastavení', '⚙️']];
+type Tab = 'calendar' | 'results' | 'table' | 'web' | 'settings';
+const TABS: [Tab, string, string][] = [['calendar', 'Kalendář', '🗓'], ['results', 'Výsledky', '🏆'], ['table', 'Tabulky', '📊'], ['web', 'Web', '🌐'], ['settings', 'Nastavení', '⚙️']];
 
 function useSettings() {
   const [s, setS] = useState<Settings>(() => {
-    try { return { ...DEFAULT_SETTINGS, ...(JSON.parse(localStorage.getItem('pv-settings') ?? '{}') as Partial<Settings>) }; } catch { return DEFAULT_SETTINGS; }
+    try { const saved = JSON.parse(localStorage.getItem('pv-settings') ?? '{}') as Partial<Settings>; return { ...DEFAULT_SETTINGS, ...saved, categories: { ...DEFAULT_SETTINGS.categories, ...saved.categories } }; } catch { return DEFAULT_SETTINGS; }
   });
   useEffect(() => { localStorage.setItem('pv-settings', JSON.stringify(s)); document.documentElement.dataset.theme = s.theme; }, [s]);
   return [s, setS] as const;
@@ -19,6 +19,7 @@ function useSettings() {
 export function App() {
   const [settings, setSettings] = useSettings();
   const { matches, info, loading, error, offline, refresh } = useMatches(settings.autoRefresh);
+  const standings = useStandings();
   const [tab, setTab] = useState<Tab>('calendar');
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
   const [selected, setSelected] = useState(ymd(new Date()));
@@ -71,6 +72,8 @@ export function App() {
         </>}
 
         {tab === 'results' && <><h1>Výsledky</h1><Results matches={visible} team={settings.team} onOpen={setOpen} /></>}
+
+        {tab === 'table' && <><h1>Tabulky</h1><Standings data={standings.filter((t) => settings.categories[t.category])} /></>}
 
         {tab === 'web' && <>
           <h1>Web</h1><p className="muted">Oficiální stránky Prosek Volejbal</p>

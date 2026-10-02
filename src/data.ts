@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import type { LastUpdate, Match } from './types';
+import type { LastUpdate, Match, Standing } from './types';
 import { REFRESH_MS } from './config';
 
 const CACHE_KEY = 'pv-cache-v1';
@@ -52,4 +52,13 @@ export function useMatches(autoRefresh: boolean) {
   }, [refresh, autoRefresh]);
 
   return { ...state, refresh };
+}
+
+const ST_KEY = 'pv-standings-v1';
+export function useStandings() {
+  const [st, setSt] = useState<Standing[]>(() => { try { return JSON.parse(localStorage.getItem(ST_KEY) ?? '[]') as Standing[]; } catch { return []; } });
+  useEffect(() => {
+    getJson<Standing[]>('standings.json').then((d) => { if (Array.isArray(d)) { setSt(d); localStorage.setItem(ST_KEY, JSON.stringify(d)); } }).catch(() => { /* tabulky jsou volitelné */ });
+  }, []);
+  return st;
 }

@@ -1,4 +1,4 @@
-export type Category = 'U18' | 'U20' | 'U22' | 'Trénink';
+export type Category = 'U18' | 'U20' | 'U22' | 'Muži' | 'Trénink';
 export type Status = 'upcoming' | 'live' | 'finished' | 'postponed' | 'cancelled';
 export interface SetScore { home: number; away: number }
 export interface Change { originalDate: string; originalTime: string; changedAt: string }
@@ -13,3 +13,5 @@ export interface Settings {
   notifyMatch: boolean; notifyChange: boolean; notifyResult: boolean;
   autoRefresh: boolean; theme: 'dark' | 'light';
 }
+export interface StandingRow { pos: number; team: string; played: number; w3: number; w2: number; l1: number; l0: number; sets: string; balls: string; points: number; mine: boolean }
+export interface Standing { category: Category; competition: string; title: string; group: string; rows: StandingRow[] }

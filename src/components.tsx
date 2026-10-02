@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { Category, Match } from './types';
+import type { Category, Match, Standing } from './types';
 import { CATEGORIES, CATEGORY_LABEL, STATUS_LABEL } from './config';
 import { dateCs, dateLong, isHome, monthLabel, pad, ymd } from './format';
 
@@ -9,7 +9,7 @@ export function MatchCard({ m, onOpen, showDate }: { m: Match; onOpen: (m: Match
   return (
     <button className="card match" onClick={() => onOpen(m)}>
       <div className="row between">
-        <span><span className="badge">{m.category}</span><span className="muted"> {m.competition}</span></span>
+        <span><span className="badge">{m.category}</span><span className="muted"> {m.round || m.competition}</span></span>
         <span className="muted">{showDate ? `${dateCs(m.date)} ${m.time}` : m.time}</span>
       </div>
       <strong className="teams">{m.homeTeam} – {m.awayTeam}</strong>
@@ -64,10 +64,10 @@ export function CategoryFilter({ value, onChange }: { value: Category | 'all'; o
 export function Empty({ children }: { children: ReactNode }) { return <p className="empty">{children}</p>; }
 
 export function Detail({ m, same, onBack, onOpen }: { m: Match; same: Match[]; onBack: () => void; onOpen: (m: Match) => void }) {
-  const q = encodeURIComponent(`${m.venue} ${m.address}`);
+  const q = encodeURIComponent(`${m.venue} ${m.address}`.trim());
   const rows: [string, string][] = [
     ['Datum', dateCs(m.date)], ['Čas', m.time], ['Soutěž', m.competition], ['Kolo / turnaj', m.round || '–'],
-    ['Hala', m.venue], ['Adresa', m.address], ['Stav', STATUS_LABEL[m.status]],
+    ['Hala', m.venue], ...(m.address ? [['Adresa', m.address] as [string, string]] : []), ['Stav', STATUS_LABEL[m.status]],
   ];
   const logo = (n: string) => <span className="logo">{n.split(' ').filter((w) => /^[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ]/.test(w)).slice(-2).map((w) => w[0]).join('')}</span>;
   return (
@@ -83,7 +83,7 @@ export function Detail({ m, same, onBack, onOpen }: { m: Match; same: Match[]; o
           <div>{logo(m.awayTeam)}<b>{m.awayTeam}</b></div>
         </div>
         {m.sets.length > 0 && <p className="center muted">Sety: {m.sets.map((s) => `${s.home}:${s.away}`).join(', ')}</p>}
-        <p className="muted"><Pin /> {m.venue}<br />{m.address}</p>
+        <p className="muted"><Pin /> {m.venue}{m.address && <><br />{m.address}</>}</p>
         <a className="btn" href={`https://maps.apple.com/?q=${q}`} target="_blank" rel="noreferrer">Otevřít v mapách</a>
       </div>
       <div className="card list">{rows.map(([k, v]) => <div key={k} className="row between"><span className="muted">{k}</span><span className="right">{v}</span></div>)}</div>
@@ -108,4 +108,22 @@ export function Results({ matches, team, onOpen }: { matches: Match[]; team: str
         <span className="muted">{m.sets.map((s) => `${s.home}:${s.away}`).join('  ')}</span>
       </button>);
   })}</>;
+}
+
+export function Standings({ data }: { data: Standing[] }) {
+  if (!data.length) return <Empty>Tabulky zatím nejsou k dispozici. Objeví se po prvním načtení z ČVS.</Empty>;
+  return <>{data.map((t) => (
+    <section key={t.category + t.competition}>
+      <h3>{t.competition}{t.group && ` · ${t.group}`}</h3>
+      <div className="card tbl">
+        <table>
+          <thead><tr><th>#</th><th className="tl">Tým</th><th>Z</th><th>V</th><th>P</th><th>Sety</th><th>B</th></tr></thead>
+          <tbody>{t.rows.map((r) => (
+            <tr key={r.pos + r.team} className={r.mine ? 'me' : ''}>
+              <td>{r.pos}.</td><td className="tl">{r.team}</td><td>{r.played}</td><td>{r.w3 + r.w2}</td><td>{r.l1 + r.l0}</td><td>{r.sets}</td><td><b>{r.points}</b></td>
+            </tr>))}</tbody>
+        </table>
+      </div>
+      <p className="muted small">Z = zápasy, V = výhry, P = prohry, B = body</p>
+    </section>))}</>;
 }
