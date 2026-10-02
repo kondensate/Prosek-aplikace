@@ -28,6 +28,17 @@ export function extractBlocks(html) {
   $('a[href*="gameId="]').each((_, a) => {
     const gameId = param($(a).attr('href'), 'gameId');
     if (!gameId || out.has(gameId)) return;
+    const own = clean($(a).text());
+    const cd = own.match(DATE_RE);
+    if (cd && /prosek/i.test(own) && /\bclub\b/i.test(own)) {
+      const ct = own.replace(DATE_RE, '').match(/(\d{1,2}):(\d{2})/);
+      const names = own.replace(/^.*?\d{1,2}:\d{2}/, '').split(/\bclub\b/i).map(clean).filter(Boolean);
+      if (names.length >= 2) {
+        out.set(gameId, { gameId, home: names[0], away: names[1], text: own, short: true,
+          date: `${cd[3]}-${pad(cd[2])}-${pad(cd[1])}`, time: ct ? `${pad(ct[1])}:${ct[2]}` : '00:00' });
+        return;
+      }
+    }
     let el = $(a);
     for (let i = 0; i < 8; i++) {
       el = el.parent();
@@ -68,6 +79,8 @@ function parseDetail(html, home, away) {
   const $ = load(html);
   const text = clean($('body').text());
   const out = {};
+  const teams = [...new Set($('h1 a[href*="teamId="], h2 a[href*="teamId="], h3 a[href*="teamId="]').map((_, x) => clean($(x).text())).get().filter(Boolean))];
+  if (teams.length >= 2) { home = teams[0]; away = teams[1]; out.homeTeam = home; out.awayTeam = away; }
   const dt = text.match(/Datum a čas:\s*(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4}),?\s*(\d{1,2}):(\d{2})/);
   if (dt) { out.date = `${dt[3]}-${pad(dt[2])}-${pad(dt[1])}`; out.time = `${pad(dt[4])}:${dt[5]}`; }
   out.competition = (text.match(/Soutěž:\s*(.*?)\s*(?=Datum a čas:|Místo konání:|$)/) || [])[1];
@@ -120,12 +133,12 @@ export async function fetchCvf(cfg) {
       let d = {};
       try { d = parseDetail(await get(`${BASE}?mode=program&competitionId=${comp.id}&gameId=${b.gameId}`), b.home, b.away); }
       catch (e) { console.warn(`  detail ${b.gameId} nedostupný:`, e.message); }
-      const home = /prosek/i.test(b.home);
+      const home = /prosek/i.test(d.homeTeam || b.home);
       const finished = d.homeScore !== undefined;
       rows.push({
         id: `cvf-${b.gameId}`, date: d.date || b.date, time: d.time || b.time, category: comp.category,
-        competition: d.competition || comp.name, round: '', homeTeam: b.home, awayTeam: b.away,
-        venue: d.venue || (home ? '' : 'Hala neuvedena'), address: home ? '' : `domácí tým: ${b.home}`,
+        competition: d.competition || comp.name, round: '', homeTeam: d.homeTeam || b.home, awayTeam: d.awayTeam || b.away,
+        venue: d.venue || (home ? '' : 'Hala neuvedena'), address: home ? '' : `domácí tým: ${d.homeTeam || b.home}`,
         status: d.status || (finished ? 'finished' : 'upcoming'),
         homeScore: d.homeScore ?? null, awayScore: d.awayScore ?? null, sets: d.sets || [],
       });
