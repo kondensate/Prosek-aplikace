@@ -1,6 +1,7 @@
 // ZDROJ DAT → IMPORT → NORMALIZACE → JSON → APLIKACE
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { DATA_SOURCE } from './data-source.mjs';
+import { fetchCvf } from './cvf.mjs';
 import { parseIcs, parseJson, parseHtml, normalize } from './parsers.mjs';
 
 const DIR = new URL('../public/data/', import.meta.url);
@@ -31,6 +32,7 @@ export function merge(oldList, fresh, now = new Date().toISOString()) {
 
 async function fetchRows() {
   const { type, url } = DATA_SOURCE;
+  if (type === 'cvf') return fetchCvf({ competitions: DATA_SOURCE.competitions, teamFilter: DATA_SOURCE.defaults.teamFilter });
   if (!url) throw new Error('DATA_SOURCE_URL není nastaveno (viz scripts/data-source.mjs a README).');
   const res = await fetch(url, { headers: { 'User-Agent': 'prosek-volejbal-importer/1.0' }, signal: AbortSignal.timeout(30000) });
   if (!res.ok) throw new Error(`Zdroj vrátil HTTP ${res.status}`);

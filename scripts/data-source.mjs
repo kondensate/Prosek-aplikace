@@ -6,9 +6,15 @@
 // ============================================================
 export const DATA_SOURCE = {
   // 'ics' | 'json' | 'html'
-  type: process.env.DATA_SOURCE_TYPE || 'ics',
+  type: process.env.DATA_SOURCE_TYPE || 'cvf',
   // URL ICS kalendáře / JSON API / HTML stránky s rozpisem (např. export z ČVS / volejbalek.cz)
-  url: process.env.DATA_SOURCE_URL || '',
+  url: process.env.DATA_SOURCE_URL || 'https://www.cvf.cz/souteze/celostatni-souteze',
+  // Oficiální soutěže ČVS (type 'cvf'): ID soutěže z webu cvf.cz
+  competitions: [
+    { id: 18670, category: 'U18', name: 'Extraliga chlapci U18' },
+    { id: 18666, category: 'U20', name: 'Extraliga chlapci U20' },
+    { id: 18662, category: 'U22', name: 'Extraliga chlapci U22' },
+  ],
   // Výchozí hodnoty, když zdroj údaj neposkytuje
   defaults: {
     venue: 'SH SK Prosek',
