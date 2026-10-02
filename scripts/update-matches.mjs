@@ -30,9 +30,15 @@ export function merge(oldList, fresh, now = new Date().toISOString()) {
   return { merged, changes };
 }
 
+let STANDINGS = [];
+
 async function fetchRows() {
   const { type, url } = DATA_SOURCE;
-  if (type === 'cvf') return fetchCvf({ competitions: DATA_SOURCE.competitions, teamFilter: DATA_SOURCE.defaults.teamFilter });
+  if (type === 'cvf') {
+    const r = await fetchCvf({ competitions: DATA_SOURCE.competitions, teamFilter: DATA_SOURCE.defaults.teamFilter });
+    STANDINGS = r.standings;
+    return r.rows;
+  }
   if (!url) throw new Error('DATA_SOURCE_URL není nastaveno (viz scripts/data-source.mjs a README).');
   const res = await fetch(url, { headers: { 'User-Agent': 'prosek-volejbal-importer/1.0' }, signal: AbortSignal.timeout(30000) });
   if (!res.ok) throw new Error(`Zdroj vrátil HTTP ${res.status}`);
@@ -55,6 +61,13 @@ async function main() {
   const same = JSON.stringify(oldList) === JSON.stringify(merged);
   console.log(`Zápasů: ${merged.length}, změn: ${changes.length}`);
   changes.forEach((c) => console.log(' •', c));
+  // Tabulky skupin (volitelné – jejich selhání import zápasů nezastaví)
+  let standingsChanged = false;
+  if (STANDINGS.length && !DRY) {
+    const oldSt = await readJson('standings.json', []);
+    standingsChanged = JSON.stringify(oldSt) !== JSON.stringify(STANDINGS);
+    if (standingsChanged) { await mkdir(DIR, { recursive: true }); await writeFile(new URL('standings.json', DIR), JSON.stringify(STANDINGS, null, 2) + '\n'); console.log('Tabulky skupin aktualizovány.'); }
+  }
   if (DRY || same) { if (same) console.log('Data se nezměnila.'); return; }
 
   await mkdir(DIR, { recursive: true });

@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 
-const CATS = ['U18', 'U20', 'U22'];
+const CATS = ['U18', 'U20', 'U22', 'Muži'];
 export const hash = (s) => createHash('sha1').update(s).digest('hex').slice(0, 12);
 
 export function detectCategory(text = '') {
@@ -87,7 +87,7 @@ export function normalize(rows, defaults) {
     const m = {
       id: '', date, time, category: CATS.includes(r.category) || r.category === 'Trénink' ? r.category : detectCategory(`${r.category ?? ''} ${r.competition ?? ''}`),
       competition: String(r.competition ?? ''), round: String(r.round ?? ''), homeTeam: String(r.homeTeam ?? '').trim(), awayTeam: String(r.awayTeam ?? '').trim(),
-      venue: String(r.venue || defaults.venue), address: String(r.address || defaults.address),
+      venue: String(r.venue || defaults.venue), address: String(r.address ?? defaults.address ?? ''),
       status: STATUSES.includes(r.status) ? r.status : 'upcoming', homeScore: num(r.homeScore), awayScore: num(r.awayScore),
       sets: Array.isArray(r.sets) ? r.sets.filter((s) => num(s?.home) !== null && num(s?.away) !== null).map((s) => ({ home: +s.home, away: +s.away })) : [],
     };
