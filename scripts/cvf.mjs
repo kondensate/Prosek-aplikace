@@ -30,14 +30,15 @@ export function extractBlocks(html) {
     if (!gameId || out.has(gameId)) return;
     const own = clean($(a).text());
     const cd = own.match(DATE_RE);
-    if (cd && /prosek/i.test(own) && /\bclub\b/i.test(own)) {
+    if (cd && /prosek/i.test(own)) {
+      // "club" v textu odkazu je jen alt obrázku loga → týmy odděluje <img>
+      const raw = ($(a).html() || '').replace(/<img[^>]*>/gi, '|');
+      const parts = clean(load(`<x>${raw}</x>`)('x').text()).split(/\||\bclub\b/i).map(clean).filter(Boolean);
       const ct = own.replace(DATE_RE, '').match(/(\d{1,2}):(\d{2})/);
-      const names = own.replace(/^.*?\d{1,2}:\d{2}/, '').split(/\bclub\b/i).map(clean).filter(Boolean);
-      if (names.length >= 2) {
-        out.set(gameId, { gameId, home: names[0], away: names[1], text: own, short: true,
-          date: `${cd[3]}-${pad(cd[2])}-${pad(cd[1])}`, time: ct ? `${pad(ct[1])}:${ct[2]}` : '00:00' });
-        return;
-      }
+      const names = parts.slice(1).filter((x) => !DATE_RE.test(x) && !/^\d{1,2}:\d{2}$/.test(x));
+      out.set(gameId, { gameId, home: names[0] || '?', away: names[1] || '?', text: own, short: true,
+        date: `${cd[3]}-${pad(cd[2])}-${pad(cd[1])}`, time: ct ? `${pad(ct[1])}:${ct[2]}` : '00:00' });
+      return;
     }
     let el = $(a);
     for (let i = 0; i < 8; i++) {
@@ -125,7 +126,8 @@ export async function fetchCvf(cfg) {
     if (teamId) extra.push(`${BASE}?mode=clubs&competitionId=${comp.id}&teamId=${teamId}`);
     for (const u of extra) { try { await add(u); } catch (e) { console.warn('  přeskočeno:', e.message); } }
 
-    const mine = [...blocks.values()].filter((b) => new RegExp(cfg.teamFilter, 'i').test(`${b.home} ${b.away}`));
+    const mine = [...blocks.values()].filter((b) => new RegExp(cfg.teamFilter, 'i').test(`${b.home} ${b.away} ${b.text}`));
+    if (!mine.length) { const $f = load(first); console.warn('  Ukázka odkazů s textem Prosek:', $f('a').filter((_, x) => /prosek/i.test($f(x).text())).slice(0, 3).map((_, x) => $f.html(x).slice(0, 400)).get()); }
     console.log(`${comp.category} (${comp.id}): zápasů na stránkách ${blocks.size}, Prosek ${mine.length}`);
     if (!blocks.size) console.warn('  VAROVÁNÍ: nenalezen žádný zápas – struktura stránky se asi změnila. Začátek stránky:\n', clean(load(first)('body').text()).slice(0, 800));
 
