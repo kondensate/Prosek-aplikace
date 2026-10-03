@@ -70,6 +70,39 @@
     ]
   },
   {
+    "id": "cvf-930550",
+    "date": "2026-10-03",
+    "time": "14:00",
+    "category": "U18",
+    "competition": "Extraliga chlapci U18",
+    "round": "",
+    "homeTeam": "VK Ostrava",
+    "awayTeam": "SK Prosek Praha",
+    "venue": "Sportovní hala Lužiny",
+    "address": "Bellušova 1877/68, 155 00 Praha 5 – Stodůlky",
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 3,
+    "sets": [
+      {
+        "home": 19,
+        "away": 25
+      },
+      {
+        "home": 25,
+        "away": 23
+      },
+      {
+        "home": 19,
+        "away": 25
+      },
+      {
+        "home": 16,
+        "away": 25
+      }
+    ]
+  },
+  {
     "id": "cvf-924313",
     "date": "2026-10-03",
     "time": "14:00",
@@ -80,10 +113,27 @@
     "awayTeam": "VK Benátky nad Jizerou B",
     "venue": "SH SK Prosek",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
+    "sets": [
+      {
+        "home": 25,
+        "away": 18
+      },
+      {
+        "home": 25,
+        "away": 20
+      },
+      {
+        "home": 23,
+        "away": 25
+      },
+      {
+        "home": 25,
+        "away": 23
+      }
+    ]
   },
   {
     "id": "cvf-930553",

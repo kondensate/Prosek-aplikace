@@ -1,6 +1,8 @@
 {
-  "updatedAt": "2026-10-03T13:20:57.625Z",
+  "updatedAt": "2026-10-03T16:51:21.244Z",
   "source": "https://www.cvf.cz/souteze/celostatni-souteze",
-  "count": 46,
-  "changes": []
+  "count": 47,
+  "changes": [
+    "cvf-924313: výsledek 3:1"
+  ]
 }
