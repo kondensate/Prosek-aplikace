@@ -799,14 +799,14 @@
       {
         "pos": 1,
         "team": "VK Trox Příbram B",
-        "played": 1,
-        "w3": 1,
+        "played": 2,
+        "w3": 2,
         "w2": 0,
         "l1": 0,
         "l0": 0,
-        "sets": "3:0",
-        "balls": "75:55",
-        "points": 3,
+        "sets": "6:0",
+        "balls": "150:104",
+        "points": 6,
         "mine": false
       },
       {
@@ -850,6 +850,32 @@
       },
       {
         "pos": 5,
+        "team": "VSK Český Krumlov",
+        "played": 1,
+        "w3": 0,
+        "w2": 1,
+        "l1": 0,
+        "l0": 0,
+        "sets": "3:2",
+        "balls": "99:104",
+        "points": 2,
+        "mine": false
+      },
+      {
+        "pos": 6,
+        "team": "TJ Praga",
+        "played": 1,
+        "w3": 0,
+        "w2": 0,
+        "l1": 1,
+        "l0": 0,
+        "sets": "2:3",
+        "balls": "104:99",
+        "points": 1,
+        "mine": false
+      },
+      {
+        "pos": 7,
         "team": "Volejbal Sokolov",
         "played": 1,
         "w3": 0,
@@ -862,7 +888,7 @@
         "mine": false
       },
       {
-        "pos": 6,
+        "pos": 8,
         "team": "VK Benátky nad Jizerou B",
         "played": 1,
         "w3": 0,
@@ -875,7 +901,7 @@
         "mine": false
       },
       {
-        "pos": 7,
+        "pos": 9,
         "team": "USK Slavia Plzeň",
         "played": 1,
         "w3": 0,
@@ -888,41 +914,15 @@
         "mine": false
       },
       {
-        "pos": 8,
-        "team": "VK Karlovarsko C",
-        "played": 1,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 1,
-        "sets": "0:3",
-        "balls": "55:75",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 9,
-        "team": "TJ Praga",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
         "pos": 10,
-        "team": "VSK Český Krumlov",
-        "played": 0,
+        "team": "VK Karlovarsko C",
+        "played": 2,
         "w3": 0,
         "w2": 0,
         "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
+        "l0": 2,
+        "sets": "0:6",
+        "balls": "104:150",
         "points": 0,
         "mine": false
       }
