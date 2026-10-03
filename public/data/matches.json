@@ -1,5 +1,38 @@
 [
   {
+    "id": "cvf-930548",
+    "date": "2026-10-03",
+    "time": "10:00",
+    "category": "U18",
+    "competition": "Extraliga chlapci U18",
+    "round": "",
+    "homeTeam": "VK Lvi Praha",
+    "awayTeam": "SK Prosek Praha",
+    "venue": "Sportovní hala Lužiny",
+    "address": "Bellušova 1877/68, 155 00 Praha 5 – Stodůlky",
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 3,
+    "sets": [
+      {
+        "home": 25,
+        "away": 23
+      },
+      {
+        "home": 16,
+        "away": 25
+      },
+      {
+        "home": 23,
+        "away": 25
+      },
+      {
+        "home": 21,
+        "away": 25
+      }
+    ]
+  },
+  {
     "id": "cvf-924308",
     "date": "2026-10-03",
     "time": "10:00",
