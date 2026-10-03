@@ -43,10 +43,31 @@
     "awayTeam": "VK Benátky nad Jizerou B",
     "venue": "SH SK Prosek",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 2,
+    "sets": [
+      {
+        "home": 23,
+        "away": 25
+      },
+      {
+        "home": 25,
+        "away": 18
+      },
+      {
+        "home": 25,
+        "away": 20
+      },
+      {
+        "home": 18,
+        "away": 25
+      },
+      {
+        "home": 15,
+        "away": 9
+      }
+    ]
   },
   {
     "id": "cvf-930550",
