@@ -798,6 +798,32 @@
     "rows": [
       {
         "pos": 1,
+        "team": "VK Trox Příbram B",
+        "played": 1,
+        "w3": 1,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "3:0",
+        "balls": "75:55",
+        "points": 3,
+        "mine": false
+      },
+      {
+        "pos": 2,
+        "team": "VK Karlovarsko C",
+        "played": 1,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 1,
+        "sets": "0:3",
+        "balls": "55:75",
+        "points": 0,
+        "mine": false
+      },
+      {
+        "pos": 3,
         "team": "Falcons Modřany",
         "played": 0,
         "w3": 0,
@@ -810,7 +836,7 @@
         "mine": false
       },
       {
-        "pos": 2,
+        "pos": 4,
         "team": "SK Prosek Praha",
         "played": 0,
         "w3": 0,
@@ -823,7 +849,7 @@
         "mine": true
       },
       {
-        "pos": 3,
+        "pos": 5,
         "team": "TJ Netolice 1892",
         "played": 0,
         "w3": 0,
@@ -836,7 +862,7 @@
         "mine": false
       },
       {
-        "pos": 4,
+        "pos": 6,
         "team": "TJ Praga",
         "played": 0,
         "w3": 0,
@@ -849,7 +875,7 @@
         "mine": false
       },
       {
-        "pos": 5,
+        "pos": 7,
         "team": "USK Slavia Plzeň",
         "played": 0,
         "w3": 0,
@@ -862,34 +888,8 @@
         "mine": false
       },
       {
-        "pos": 6,
-        "team": "VK Benátky nad Jizerou B",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 7,
-        "team": "VK Karlovarsko C",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
         "pos": 8,
-        "team": "VK Trox Příbram B",
+        "team": "VK Benátky nad Jizerou B",
         "played": 0,
         "w3": 0,
         "w2": 0,
