@@ -179,10 +179,23 @@
     "awayTeam": "SK Prosek Praha",
     "venue": "Sportovní hala Lužiny, Bellušova 1877 Praha - Stodůlky",
     "address": "Bellušova 1877/68, 155 00 Praha 5 – Stodůlky",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 0,
+    "awayScore": 3,
+    "sets": [
+      {
+        "home": 10,
+        "away": 25
+      },
+      {
+        "home": 16,
+        "away": 25
+      },
+      {
+        "home": 20,
+        "away": 25
+      }
+    ]
   },
   {
     "id": "cvf-930492",
