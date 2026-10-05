@@ -5,10 +5,13 @@ on:
 permissions:
   contents: write
   actions: write
-concurrency: update-matches
+concurrency:
+  group: update-matches
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
