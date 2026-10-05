@@ -6,10 +6,9 @@ export const CLUB_NAME = 'SK Prosek Praha';
 export const CLUB_WEB = 'https://www.volejbalek.cz';
 // Přesné podstránky webu doplňte podle skutečné struktury webu klubu.
 export const WEB_LINKS = [
-  { label: 'Aktuální články', url: CLUB_WEB },
-  { label: 'Výsledky', url: CLUB_WEB },
   { label: 'Informace o klubu', url: CLUB_WEB },
-  { label: 'Oficiální stránky', url: CLUB_WEB },
+  { label: 'Oficiální stránky ČVS', url: 'https://www.cvf.cz' },
+  { label: 'Pina', url: 'https://pinaprosek.eu/dluhy' },
 ];
 export const REFRESH_MS = 30 * 60 * 1000;
 export const STATUS_LABEL = {

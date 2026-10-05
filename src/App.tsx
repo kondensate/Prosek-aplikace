@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Category, Match, Settings } from './types';
-import { CATEGORIES, CATEGORY_LABEL, CLUB_WEB, DEFAULT_SETTINGS, WEB_LINKS } from './config';
+import { CATEGORIES, CATEGORY_LABEL, DEFAULT_SETTINGS, WEB_LINKS } from './config';
 import { useMatches, useStandings } from './data';
 import { dateLong, monthLabel, sortMatches, stamp, ymd } from './format';
 import { Calendar, CategoryFilter, Detail, Empty, MatchCard, Results, Standings } from './components';
@@ -78,7 +78,7 @@ export function App() {
         {tab === 'web' && <>
           <h1>Web</h1><p className="muted">Oficiální stránky Prosek Volejbal</p>
           <div className="card list">{WEB_LINKS.map((l) => <a key={l.label} className="link-row" href={l.url} target="_blank" rel="noreferrer"><span>{l.label}</span>›</a>)}</div>
-          <p className="muted small">Web klubu se otevře v prohlížeči: {CLUB_WEB.replace('https://', '')}</p>
+          <p className="muted small">Odkazy se otevřou v prohlížeči.</p>
         </>}
 
         {tab === 'settings' && <>

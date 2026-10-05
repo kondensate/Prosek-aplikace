@@ -34,7 +34,7 @@ input[type=checkbox]{accent-color:var(--blue);width:22px;height:22px}
 input.switch{appearance:none;width:51px;height:31px;background:var(--card2);border-radius:999px;position:relative;transition:.2s}
 input.switch::after{content:"";position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;transition:.2s}
 input.switch:checked{background:var(--green)}input.switch:checked::after{left:22px}
-.tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:var(--card);border-top:1px solid var(--line);padding:8px 0 calc(6px + env(safe-area-inset-bottom) * .5)}
+.tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:var(--card);border-top:1px solid var(--line);padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
 .tabbar button{display:flex;flex-direction:column;align-items:center;font-size:11px;color:var(--muted);gap:2px}.tabbar button span{font-size:22px}.tabbar .on{color:var(--blue)}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 
