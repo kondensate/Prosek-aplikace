@@ -1,4 +1,4 @@
-export type Category = 'U18' | 'U20' | 'U22' | 'Muži' | 'Trénink';
+export type Category = 'U18' | 'U20' | 'U22' | 'Trénink';
 export type Status = 'upcoming' | 'live' | 'finished' | 'postponed' | 'cancelled';
 export interface SetScore { home: number; away: number }
 export interface Change { originalDate: string; originalTime: string; changedAt: string }
