@@ -14,7 +14,6 @@ export const DATA_SOURCE = {
     { id: 18670, category: 'U18', name: 'Extraliga chlapci U18' },
     { id: 18666, category: 'U20', name: 'Extraliga chlapci U20' },
     { id: 18662, category: 'U22', name: 'Extraliga chlapci U22' },
-    { id: 18660, category: 'Muži', name: '2. liga muži' },
   ],
   // Výchozí hodnoty, když zdroj údaj neposkytuje
   defaults: {

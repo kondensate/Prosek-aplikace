@@ -57,7 +57,9 @@ async function main() {
   // Ochrana: prázdný/rozbitý zdroj nikdy nepřepíše fungující data.
   if (!matches.length) throw new Error('Zdroj nevrátil žádné platné zápasy – data zůstávají beze změny.');
 
-  const { merged, changes } = merge(oldList, matches);
+  const allowed = new Set(DATA_SOURCE.type === 'cvf' ? DATA_SOURCE.competitions.map((c) => c.category) : ['U18', 'U20', 'U22', 'Trénink']);
+  const { merged: all, changes } = merge(oldList, matches);
+  const merged = all.filter((m) => allowed.has(m.category)); // kategorie, které už nesledujeme, se z dat odstraní
   const same = JSON.stringify(oldList) === JSON.stringify(merged);
   console.log(`Zápasů: ${merged.length}, změn: ${changes.length}`);
   changes.forEach((c) => console.log(' •', c));

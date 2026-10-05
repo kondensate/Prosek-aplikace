@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 
-const CATS = ['U18', 'U20', 'U22', 'Muži'];
+const CATS = ['U18', 'U20', 'U22'];
 export const hash = (s) => createHash('sha1').update(s).digest('hex').slice(0, 12);
 
 export function detectCategory(text = '') {
