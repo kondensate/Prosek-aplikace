@@ -216,6 +216,9 @@ export async function fetchCvf(cfg) {
     const handle = async (b) => {
       if (done.has(b.gameId)) return;
       done.add(b.gameId);
+      // Odehrané zápasy se už nemění – detail znovu nestahujeme (šetří desítky požadavků)
+      const old = cfg.known?.get(`cvf-${b.gameId}`);
+      if (old && old.status === 'finished' && old.homeScore !== null && old.category === comp.category) { rows.push({ ...old, round: [groupLabel, rounds.get(b.gameId)].filter(Boolean).join(' · ') || old.round }); return; }
       let d = {};
       try {
         const html = await get(`${BASE}?mode=program&competitionId=${comp.id}&gameId=${b.gameId}`);

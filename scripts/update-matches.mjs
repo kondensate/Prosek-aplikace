@@ -32,10 +32,10 @@ export function merge(oldList, fresh, now = new Date().toISOString()) {
 
 let STANDINGS = [];
 
-async function fetchRows() {
+async function fetchRows(known = new Map()) {
   const { type, url } = DATA_SOURCE;
   if (type === 'cvf') {
-    const r = await fetchCvf({ competitions: DATA_SOURCE.competitions, teamFilter: DATA_SOURCE.defaults.teamFilter });
+    const r = await fetchCvf({ competitions: DATA_SOURCE.competitions, teamFilter: DATA_SOURCE.defaults.teamFilter, known });
     STANDINGS = r.standings;
     return r.rows;
   }
@@ -50,13 +50,13 @@ async function fetchRows() {
 }
 
 async function main() {
-  const rows = await fetchRows();
+  const oldList = await readJson('matches.json', []);
+  const rows = await fetchRows(new Map(oldList.map((m) => [m.id, m])));
   const { matches, rejected } = normalize(rows, DATA_SOURCE.defaults);
   if (rejected.length) console.warn(`Přeskočeno ${rejected.length} neplatných záznamů.`);
   // Ochrana: prázdný/rozbitý zdroj nikdy nepřepíše fungující data.
   if (!matches.length) throw new Error('Zdroj nevrátil žádné platné zápasy – data zůstávají beze změny.');
 
-  const oldList = await readJson('matches.json', []);
   const { merged, changes } = merge(oldList, matches);
   const same = JSON.stringify(oldList) === JSON.stringify(merged);
   console.log(`Zápasů: ${merged.length}, změn: ${changes.length}`);
