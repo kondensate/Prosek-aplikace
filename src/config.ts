@@ -19,3 +19,6 @@ export const DEFAULT_SETTINGS: Settings = {
   team: CLUB_NAME, categories: { U18: true, U20: true, U22: true, Muži: true, Trénink: true },
   notifyMatch: true, notifyChange: true, notifyResult: true, autoRefresh: true, theme: 'dark',
 };
+
+// Data se čtou přímo z repozitáře (bez čekání na nové nasazení webu); při výpadku se použije kopie přímo z webu.
+export const DATA_REMOTE = 'https://raw.githubusercontent.com/kondensate/Prosek-aplikace/main/public/data/';

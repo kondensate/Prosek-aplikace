@@ -104,8 +104,8 @@ export function Results({ matches, team, onOpen }: { matches: Match[]; team: str
     return (
       <button key={m.id} className={`card match res ${win ? 'win' : 'loss'}`} onClick={() => onOpen(m)}>
         <div className="row between"><span className="muted">{dateCs(m.date)} · {m.competition}</span><span className="tag">{home ? 'Doma' : 'Venku'}</span></div>
-        <div className="row between"><strong>{home ? m.awayTeam : m.homeTeam}</strong><strong className={win ? 'w' : 'l'}>{m.homeScore}:{m.awayScore}</strong></div>
-        <span className="muted">{m.sets.map((s) => `${s.home}:${s.away}`).join('  ')}</span>
+        <div className="row between"><strong>{home ? m.awayTeam : m.homeTeam}</strong><strong className={win ? 'w' : 'l'}>{mine}:{theirs}</strong></div>
+        <span className="muted">{m.sets.map((s) => (home ? `${s.home}:${s.away}` : `${s.away}:${s.home}`)).join('  ')}</span>
       </button>);
   })}</>;
 }

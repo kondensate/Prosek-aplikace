@@ -18,7 +18,7 @@ function useSettings() {
 
 export function App() {
   const [settings, setSettings] = useSettings();
-  const { matches, info, loading, error, offline, refresh } = useMatches(settings.autoRefresh);
+  const { matches, info, loading, error, offline, checkedAt, refresh } = useMatches(settings.autoRefresh);
   const standings = useStandings();
   const [tab, setTab] = useState<Tab>('calendar');
   const [month, setMonth] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
@@ -58,7 +58,7 @@ export function App() {
             <button className="icon" onClick={() => void refresh()} aria-label="Aktualizovat">{loading ? '…' : '↻'}</button>
           </div>
           <CategoryFilter value={filter} onChange={setFilter} />
-          <p className="muted small">{info ? `Aktualizováno: ${stamp(info.updatedAt)}` : 'Zatím neaktualizováno'}{offline && ' · offline, zobrazena uložená data'}</p>
+          <p className="muted small">{info ? `Poslední změna dat: ${stamp(info.updatedAt)}` : 'Zatím neaktualizováno'}{checkedAt && ` · zkontrolováno ${new Date(checkedAt).getHours()}:${String(new Date(checkedAt).getMinutes()).padStart(2, '0')}`}{offline && ' · offline, zobrazena uložená data'}</p>
           {error && <p className="alert">Data se nepodařilo načíst ({error}). Zkuste to později.</p>}
           {!error && !loading && !matches.length && <Empty>Zatím nejsou k dispozici žádné zápasy.</Empty>}
           <Calendar month={month} matches={monthMatches} selected={selected} onSelect={setSelected} />
