@@ -198,6 +198,35 @@
     ]
   },
   {
+    "id": "cvf-930497",
+    "date": "2026-10-11",
+    "time": "09:00",
+    "category": "U20",
+    "competition": "Extraliga chlapci U20",
+    "round": "",
+    "homeTeam": "SK Prosek Praha",
+    "awayTeam": "Kladno volejbal cz",
+    "venue": "Sportovní gymnázium Ludvíka Daňka, Botanická 63 Brno - Ponava",
+    "address": "Botanická 70, Brno",
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
+    "sets": [
+      {
+        "home": 25,
+        "away": 12
+      },
+      {
+        "home": 25,
+        "away": 17
+      },
+      {
+        "home": 25,
+        "away": 19
+      }
+    ]
+  },
+  {
     "id": "cvf-930499",
     "date": "2026-10-11",
     "time": "13:00",
