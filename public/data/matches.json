@@ -477,5 +477,53 @@
     "homeScore": null,
     "awayScore": null,
     "sets": []
+  },
+  {
+    "id": "cvf-956553",
+    "date": "2026-11-14",
+    "time": "10:00",
+    "category": "U22",
+    "competition": "Extraliga chlapci U22",
+    "round": "",
+    "homeTeam": "SK Prosek Praha",
+    "awayTeam": "VK Trox Příbram",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "upcoming",
+    "homeScore": null,
+    "awayScore": null,
+    "sets": []
+  },
+  {
+    "id": "cvf-956555",
+    "date": "2026-11-14",
+    "time": "16:00",
+    "category": "U22",
+    "competition": "Extraliga chlapci U22",
+    "round": "",
+    "homeTeam": "SK Prosek Praha",
+    "awayTeam": "SK Kojetín 2016",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "upcoming",
+    "homeScore": null,
+    "awayScore": null,
+    "sets": []
+  },
+  {
+    "id": "cvf-956558",
+    "date": "2026-11-15",
+    "time": "11:00",
+    "category": "U22",
+    "competition": "Extraliga chlapci U22",
+    "round": "",
+    "homeTeam": "Spartak Velké Meziříčí",
+    "awayTeam": "SK Prosek Praha",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "upcoming",
+    "homeScore": null,
+    "awayScore": null,
+    "sets": []
   }
 ]
