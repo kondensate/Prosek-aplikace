@@ -361,10 +361,23 @@
     "awayTeam": "TJ Slavia Hradec Králové",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
+    "sets": [
+      {
+        "home": 25,
+        "away": 21
+      },
+      {
+        "home": 25,
+        "away": 20
+      },
+      {
+        "home": 25,
+        "away": 15
+      }
+    ]
   },
   {
     "id": "cvf-955768",
