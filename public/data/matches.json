@@ -390,10 +390,23 @@
     "awayTeam": "VSC Zlín",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
+    "sets": [
+      {
+        "home": 25,
+        "away": 20
+      },
+      {
+        "home": 25,
+        "away": 23
+      },
+      {
+        "home": 25,
+        "away": 17
+      }
+    ]
   },
   {
     "id": "cvf-955771",
