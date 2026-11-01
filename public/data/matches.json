@@ -419,10 +419,31 @@
     "awayTeam": "Green Volley Frýdek-Místek",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 2,
+    "awayScore": 3,
+    "sets": [
+      {
+        "home": 25,
+        "away": 22
+      },
+      {
+        "home": 19,
+        "away": 25
+      },
+      {
+        "home": 20,
+        "away": 25
+      },
+      {
+        "home": 25,
+        "away": 23
+      },
+      {
+        "home": 12,
+        "away": 15
+      }
+    ]
   },
   {
     "id": "cvf-955774",
