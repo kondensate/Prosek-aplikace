@@ -409,6 +409,38 @@
     ]
   },
   {
+    "id": "cvf-955771",
+    "date": "2026-11-01",
+    "time": "11:00",
+    "category": "U18",
+    "competition": "Extraliga chlapci U18",
+    "round": "",
+    "homeTeam": "SK Prosek Praha",
+    "awayTeam": "Green Volley Frýdek-Místek",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "upcoming",
+    "homeScore": null,
+    "awayScore": null,
+    "sets": []
+  },
+  {
+    "id": "cvf-955774",
+    "date": "2026-11-01",
+    "time": "17:00",
+    "category": "U18",
+    "competition": "Extraliga chlapci U18",
+    "round": "",
+    "homeTeam": "SK Kojetín 2016",
+    "awayTeam": "SK Prosek Praha",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "upcoming",
+    "homeScore": null,
+    "awayScore": null,
+    "sets": []
+  },
+  {
     "id": "cvf-956018",
     "date": "2026-11-07",
     "time": "10:00",
