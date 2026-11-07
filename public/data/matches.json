@@ -504,6 +504,35 @@
     ]
   },
   {
+    "id": "cvf-956021",
+    "date": "2026-11-07",
+    "time": "16:00",
+    "category": "U20",
+    "competition": "Extraliga chlapci U20",
+    "round": "",
+    "homeTeam": "SK Prosek Praha",
+    "awayTeam": "VK Brno",
+    "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
+    "address": "Lovosická 559/32, Praha 9",
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 0,
+    "sets": [
+      {
+        "home": 25,
+        "away": 14
+      },
+      {
+        "home": 25,
+        "away": 22
+      },
+      {
+        "home": 25,
+        "away": 18
+      }
+    ]
+  },
+  {
     "id": "cvf-956024",
     "date": "2026-11-08",
     "time": "11:00",
