@@ -275,7 +275,7 @@
     "rows": [
       {
         "pos": 1,
-        "team": "AERO Odolena Voda",
+        "team": "VK Lvi Praha",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -283,63 +283,11 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 20,
         "mine": false
       },
       {
         "pos": 2,
-        "team": "Blue Volley Ostrava",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 3,
-        "team": "Green Volley Frýdek-Místek",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 4,
-        "team": "Kladno volejbal cz",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 5,
-        "team": "SK Kojetín 2016",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 6,
         "team": "SK Prosek Praha",
         "played": 0,
         "w3": 0,
@@ -348,12 +296,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 19,
         "mine": true
       },
       {
-        "pos": 7,
-        "team": "SK Volejbal Klatovy",
+        "pos": 3,
+        "team": "VK Brno",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -361,7 +309,59 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 18,
+        "mine": false
+      },
+      {
+        "pos": 4,
+        "team": "Blue Volley Ostrava",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 17,
+        "mine": false
+      },
+      {
+        "pos": 5,
+        "team": "VK Jihostroj České Budějovice",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 16,
+        "mine": false
+      },
+      {
+        "pos": 6,
+        "team": "VK Karlovarsko",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 15,
+        "mine": false
+      },
+      {
+        "pos": 7,
+        "team": "Spartak Velké Meziříčí",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 14,
         "mine": false
       },
       {
@@ -374,12 +374,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 13,
         "mine": false
       },
       {
         "pos": 9,
-        "team": "SKV Ústí nad Labem",
+        "team": "VK Trox Příbram",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -387,12 +387,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 12,
         "mine": false
       },
       {
         "pos": 10,
-        "team": "Spartak Velké Meziříčí",
+        "team": "VK Dukla Liberec",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -400,7 +400,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 11,
         "mine": false
       },
       {
@@ -413,12 +413,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 10,
         "mine": false
       },
       {
         "pos": 12,
-        "team": "VK Brno",
+        "team": "Green Volley Frýdek-Místek",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -426,12 +426,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 9,
         "mine": false
       },
       {
         "pos": 13,
-        "team": "VK Dukla Liberec",
+        "team": "AERO Odolena Voda",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -439,12 +439,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 8,
         "mine": false
       },
       {
         "pos": 14,
-        "team": "VK Jihostroj České Budějovice",
+        "team": "SK Volejbal Klatovy",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -452,12 +452,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 7,
         "mine": false
       },
       {
         "pos": 15,
-        "team": "VK Karlovarsko",
+        "team": "SK Kojetín 2016",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -465,12 +465,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 6,
         "mine": false
       },
       {
         "pos": 16,
-        "team": "VK Lvi Praha",
+        "team": "Kladno volejbal cz",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -478,11 +478,24 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 5,
         "mine": false
       },
       {
         "pos": 17,
+        "team": "Vlci Nový Jičín",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 4,
+        "mine": false
+      },
+      {
+        "pos": 18,
         "team": "VK Ostrava",
         "played": 0,
         "w3": 0,
@@ -491,20 +504,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 18,
-        "team": "VK Trox Příbram",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
+        "points": 3,
         "mine": false
       },
       {
@@ -517,12 +517,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 2,
         "mine": false
       },
       {
         "pos": 20,
-        "team": "Vlci Nový Jičín",
+        "team": "SKV Ústí nad Labem",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -530,7 +530,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 1,
         "mine": false
       }
     ]
