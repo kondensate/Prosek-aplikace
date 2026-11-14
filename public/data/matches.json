@@ -605,10 +605,27 @@
     "awayTeam": "VK Trox Příbram",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 1,
+    "awayScore": 3,
+    "sets": [
+      {
+        "home": 29,
+        "away": 31
+      },
+      {
+        "home": 26,
+        "away": 28
+      },
+      {
+        "home": 28,
+        "away": 26
+      },
+      {
+        "home": 15,
+        "away": 25
+      }
+    ]
   },
   {
     "id": "cvf-956555",
