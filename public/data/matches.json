@@ -638,10 +638,27 @@
     "awayTeam": "SK Kojetín 2016",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
+    "sets": [
+      {
+        "home": 25,
+        "away": 20
+      },
+      {
+        "home": 26,
+        "away": 28
+      },
+      {
+        "home": 25,
+        "away": 22
+      },
+      {
+        "home": 25,
+        "away": 13
+      }
+    ]
   },
   {
     "id": "cvf-956558",
