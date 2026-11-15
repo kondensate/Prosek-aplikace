@@ -671,10 +671,27 @@
     "awayTeam": "SK Prosek Praha",
     "venue": "SH SK Prosek, Lovosická 559 Praha - Letňany",
     "address": "Lovosická 559/32, Praha 9",
-    "status": "upcoming",
-    "homeScore": null,
-    "awayScore": null,
-    "sets": []
+    "status": "finished",
+    "homeScore": 3,
+    "awayScore": 1,
+    "sets": [
+      {
+        "home": 25,
+        "away": 19
+      },
+      {
+        "home": 16,
+        "away": 25
+      },
+      {
+        "home": 25,
+        "away": 18
+      },
+      {
+        "home": 25,
+        "away": 16
+      }
+    ]
   },
   {
     "id": "cvf-957955",
