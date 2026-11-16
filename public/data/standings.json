@@ -543,7 +543,7 @@
     "rows": [
       {
         "pos": 1,
-        "team": "AERO Odolena Voda",
+        "team": "TJ Slavia Hradec Králové",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -551,7 +551,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 20,
         "mine": false
       },
       {
@@ -564,7 +564,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 19,
         "mine": false
       },
       {
@@ -577,12 +577,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 18,
         "mine": false
       },
       {
         "pos": 4,
-        "team": "INLAB SK Meteor Praha A",
+        "team": "VSK Zlín",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -590,12 +590,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 17,
         "mine": false
       },
       {
         "pos": 5,
-        "team": "SK Kojetín 2016",
+        "team": "VK Trox Příbram",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -603,50 +603,11 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 16,
         "mine": false
       },
       {
         "pos": 6,
-        "team": "SK Prosek Praha",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": true
-      },
-      {
-        "pos": 7,
-        "team": "SK Volejbal Kolín",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 8,
-        "team": "SKV Ústí nad Labem",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 9,
         "team": "Spartak Velké Meziříčí",
         "played": 0,
         "w3": 0,
@@ -655,12 +616,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 15,
         "mine": false
       },
       {
-        "pos": 10,
-        "team": "TJ Slavia Hradec Králové",
+        "pos": 7,
+        "team": "SK Prosek Praha",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -668,11 +629,76 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 14,
+        "mine": true
+      },
+      {
+        "pos": 8,
+        "team": "SK Kojetín 2016",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 13,
+        "mine": false
+      },
+      {
+        "pos": 9,
+        "team": "AERO Odolena Voda",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 12,
+        "mine": false
+      },
+      {
+        "pos": 10,
+        "team": "VK PFN Znojmo",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 11,
         "mine": false
       },
       {
         "pos": 11,
+        "team": "SKV Ústí nad Labem",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 10,
+        "mine": false
+      },
+      {
+        "pos": 12,
+        "team": "VK Ostrava",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 9,
+        "mine": false
+      },
+      {
+        "pos": 13,
         "team": "TJ Sokol Šlapanice",
         "played": 0,
         "w3": 0,
@@ -681,33 +707,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 12,
-        "team": "TJ Svitavy",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 13,
-        "team": "VAM Olomouc",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
+        "points": 8,
         "mine": false
       },
       {
@@ -720,11 +720,37 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 7,
         "mine": false
       },
       {
         "pos": 15,
+        "team": "SK Volejbal Kolín",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 6,
+        "mine": false
+      },
+      {
+        "pos": 16,
+        "team": "TJ Svitavy",
+        "played": 0,
+        "w3": 0,
+        "w2": 0,
+        "l1": 0,
+        "l0": 0,
+        "sets": "0:0",
+        "balls": "0:0",
+        "points": 5,
+        "mine": false
+      },
+      {
+        "pos": 17,
         "team": "VK Choceň",
         "played": 0,
         "w3": 0,
@@ -733,38 +759,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 16,
-        "team": "VK Ostrava",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
-        "mine": false
-      },
-      {
-        "pos": 17,
-        "team": "VK PFN Znojmo",
-        "played": 0,
-        "w3": 0,
-        "w2": 0,
-        "l1": 0,
-        "l0": 0,
-        "sets": "0:0",
-        "balls": "0:0",
-        "points": 0,
+        "points": 4,
         "mine": false
       },
       {
         "pos": 18,
-        "team": "VK Trox Příbram",
+        "team": "VAM Olomouc",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -772,12 +772,12 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 3,
         "mine": false
       },
       {
         "pos": 19,
-        "team": "VSK Zlín",
+        "team": "INLAB SK Meteor Praha A",
         "played": 0,
         "w3": 0,
         "w2": 0,
@@ -785,7 +785,7 @@
         "l0": 0,
         "sets": "0:0",
         "balls": "0:0",
-        "points": 0,
+        "points": 2,
         "mine": false
       }
     ]
